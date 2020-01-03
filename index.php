@@ -212,7 +212,7 @@ function vcp_check_ip_exist($ip)
 }
 
 global $vcp_db_version;
-$vcp_db_version = ‘1’;
+$vcp_db_version = "1";
 
 function vcp_install() {
     global $wpdb;

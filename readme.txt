@@ -63,6 +63,11 @@ Yes
 Yes
 
 
+== Changelog ==
+
+= 1.0.1 =
+Fixed where clauses for weekly and monthly statistics
+
 
 == Changelog ==
 

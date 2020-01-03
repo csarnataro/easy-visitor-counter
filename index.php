@@ -184,9 +184,9 @@ function vcp_get_visit_count($interval='D')
     elseif($interval == 'D')
     $condition = "DATE(`Time`)=DATE(NOW())";
     else if($interval == 'W')
-    $condition = "WEEKOFYEAR(`Time`)=WEEKOFYEAR(NOW())";
+    $condition = "WEEKOFYEAR(`Time`)=WEEKOFYEAR(NOW()) AND YEAR(`Time`)=YEAR(NOW())";
     else if($interval == 'M')
-    $condition = "MONTH(`Time`)=MONTH(NOW())";
+    $condition = "MONTH(`Time`)=MONTH(NOW()) AND YEAR(`Time`)=YEAR(NOW())";
     else if($interval == 'Y')
     $condition = "DATE(`Time`)=DATE(NOW() - INTERVAL 1 DAY)";
    

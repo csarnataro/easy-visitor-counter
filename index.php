@@ -2,9 +2,9 @@
 /*
 Plugin Name: Visitor Counter Plugin
 Description: Add the visitor counter widget to your website. 
-Version: 1.0
-Author: visitorcounterplugin.com
-Author URI: http://visitorcounterplugin.com
+Version: 1.1.0
+Author: Christian Sarnataro (originally visitorcounterplugin.com)
+Author URI: https://csarnataro.github.io
 License: GPLv2
 */
 
@@ -27,8 +27,11 @@ class VisitorCounterPlugin_Widget extends WP_Widget {
              
         );
     }
-     
+    
     function form( $instance ) {
+    }
+
+    function __form( $instance ) {
         $defaults = array(
         'textfontfamily' => 'Merriweather',
         'textcolor'=>'#000',
@@ -94,7 +97,6 @@ class VisitorCounterPlugin_Widget extends WP_Widget {
         ?>
 
         <aside class="widget" id="visitor-counter">
-            <h2 class="visitor-counter-heading" style="font-family:<?php echo $headingfontfamily ?>; color:<?php echo $headingcolor ?>;" ><a href="http://visitorcounterplugin.com">Visitor Counter</a></h2>
         <div class="visitor-counter-content" style="color: <?php echo $textcolor ?>; font-family: <?php echo $textfontfamily ?>;" >
             <p>Today: <?php echo vcp_get_visit_count('D') ?></p>
             <p>Yesterday: <?php echo vcp_get_visit_count('Y') ?></p>
@@ -204,7 +206,7 @@ function vcp_check_ip_exist($ip)
 
     $table_name = $wpdb->prefix . 'vcp_log';
 
-    $sql = "SELECT COUNT(*) FROM $table_name WHERE IP='".$ip."' AND DATE(Time)='".date('Y-m-d')."'";
+    $sql = "SELECT COUNT(*) FROM $table_name WHERE IP='".$ip."' AND IP not like '%:%' AND DATE(Time)='".date('Y-m-d')."'";
 
     $count = $wpdb -> get_var($sql);
    

@@ -73,6 +73,9 @@ Fixed where clauses for weekly and monthly statistics
 
 = 1.0 =
 
+= 1.1.0 =
+Filtering out IPV6 addresses coming likely coming from internal cache plugins
+
 
 
 == Screenshots ==

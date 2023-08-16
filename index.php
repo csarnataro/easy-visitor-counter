@@ -193,7 +193,7 @@ function vcp_get_visit_count($interval='D')
     $condition = "DATE(`Time`)=DATE(NOW() - INTERVAL 1 DAY)";
    
 
-    $sql = "SELECT COUNT(*) FROM $table_name WHERE ".$condition;
+    $sql = "SELECT COUNT(*) FROM $table_name WHERE IP not like '%:%' AND ".$condition;
 
     $count = $wpdb -> get_var($sql);
    
@@ -206,7 +206,7 @@ function vcp_check_ip_exist($ip)
 
     $table_name = $wpdb->prefix . 'vcp_log';
 
-    $sql = "SELECT COUNT(*) FROM $table_name WHERE IP='".$ip."' AND IP not like '%:%' AND DATE(Time)='".date('Y-m-d')."'";
+    $sql = "SELECT COUNT(*) FROM $table_name WHERE IP='".$ip."' AND DATE(Time)='".date('Y-m-d')."'";
 
     $count = $wpdb -> get_var($sql);
    
